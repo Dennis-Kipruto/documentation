@@ -1,0 +1,139 @@
+@import "tailwindcss";
+@import "../styles/editor.css";
+
+/* Ensure proper theme transitions */
+html {
+  scroll-behavior: smooth;
+  /* Ensure html element can receive dark class from next-themes */
+}
+
+/* Apply theme colors to html and body - Use !important to override any conflicts */
+html {
+  background-color: white !important;
+  color: rgb(15 23 42) !important; /* slate-900 */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark {
+  background-color: rgb(15 23 42) !important; /* slate-900 */
+  color: rgb(241 245 249) !important; /* slate-100 */
+}
+
+/* Ensure all child elements inherit properly */
+html * {
+  color: inherit;
+}
+
+html.dark * {
+  color: inherit;
+}
+
+/* Remove the conflicting body styles and let Tailwind handle everything */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: inherit !important;
+  color: inherit !important;
+  /* Let Tailwind classes from layout.tsx handle background and colors */
+}
+
+/* Force all layout containers to respect theme */
+.min-h-screen {
+  background-color: inherit !important;
+}
+
+/* Override any Tailwind background classes for theme containers */
+html.dark .bg-slate-50 {
+  background-color: rgb(15 23 42) !important; /* slate-900 */
+}
+
+html.dark .bg-slate-100 {
+  background-color: rgb(30 41 59) !important; /* slate-800 */
+}
+
+html.dark .bg-white {
+  background-color: rgb(30 41 59) !important; /* slate-800 */
+}
+
+html .bg-slate-50 {
+  background-color: rgb(248 250 252) !important; /* slate-50 */
+}
+
+html .bg-slate-100 {
+  background-color: rgb(241 245 249) !important; /* slate-100 */
+}
+
+html .bg-white {
+  background-color: white !important;
+}
+
+/* Override border colors - use grey in light mode, slate in dark mode */
+html .border-slate-200 {
+  border-color: rgb(209 213 219) !important; /* gray-300 */
+}
+
+html .border-slate-300 {
+  border-color: rgb(156 163 175) !important; /* gray-400 */
+}
+
+html .border-slate-700 {
+  border-color: rgb(107 114 128) !important; /* gray-500 */
+}
+
+/* Keep dark mode borders as slate */
+html.dark .border-slate-200 {
+  border-color: rgb(51 65 85) !important; /* slate-600 */
+}
+
+html.dark .border-slate-300 {
+  border-color: rgb(51 65 85) !important; /* slate-600 */
+}
+
+html.dark .border-slate-600 {
+  border-color: rgb(71 85 105) !important; /* slate-500 */
+}
+
+html.dark .border-slate-700 {
+  border-color: rgb(51 65 85) !important; /* slate-600 */
+}
+
+/* Fix hover states for buttons and interactive elements */
+html.dark .hover\:bg-slate-100:hover {
+  background-color: rgb(51 65 85) !important; /* slate-700 */
+}
+
+html.dark .hover\:bg-slate-200:hover {
+  background-color: rgb(51 65 85) !important; /* slate-700 */
+}
+
+html.dark .hover\:bg-slate-50:hover {
+  background-color: rgb(51 65 85) !important; /* slate-700 */
+}
+
+/* Fix active/selected states */
+html.dark .bg-slate-200 {
+  background-color: rgb(51 65 85) !important; /* slate-700 */
+}
+
+/* Fix primary button colors to work in dark mode */
+html.dark .bg-blue-600 {
+  background-color: rgb(37 99 235) !important; /* blue-600 */
+}
+
+html.dark .hover\:bg-blue-700:hover {
+  background-color: rgb(29 78 216) !important; /* blue-700 */
+}
+
+html.dark .bg-green-600 {
+  background-color: rgb(22 163 74) !important; /* green-600 */
+}
+
+html.dark .hover\:bg-green-700:hover {
+  background-color: rgb(21 128 61) !important; /* green-700 */
+}
+
+/* Ensure smooth transitions for theme changes */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
